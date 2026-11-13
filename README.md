@@ -45,7 +45,7 @@ npm run dev   # ビルドせず tsx で src/server.ts を直接起動
 
 ### プラグインとして
 
-`.claude-plugin/plugin.json` と `.mcp.json` を含むので、このディレクトリをプラグインとして読み込むと MCP サーバー `company-knowledge` が登録されます。サーバーは `${CLAUDE_PLUGIN_ROOT}/dist/server.js` から起動されるため、事前に `npm install` か `npm run build` で `dist/` を用意してください。
+`.claude-plugin/plugin.json` の `mcpServers` に定義があるので、このディレクトリをプラグインとして読み込むと MCP サーバー `company-knowledge` が登録されます。サーバーは `${CLAUDE_PLUGIN_ROOT}/dist/server.js` から起動されるため、事前に `npm install` か `npm run build` で `dist/` を用意してください。
 
 ```bash
 claude --plugin-dir /path/to/my-mcp-plugin
@@ -61,8 +61,7 @@ claude mcp add company-knowledge -- node /path/to/my-mcp-plugin/dist/server.js
 
 ```
 .
-├── .claude-plugin/plugin.json  # プラグインのメタデータ
-├── .mcp.json                   # プラグインが登録する MCP サーバー定義
+├── .claude-plugin/plugin.json  # プラグインのメタデータと MCP サーバー定義
 ├── bin/company-kb              # サーバー起動用ラッパースクリプト
 ├── src/server.ts               # MCP サーバー本体（stdio トランスポート）
 ├── dist/                       # ビルド成果物

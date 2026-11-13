@@ -2,5 +2,11 @@
   "name": "company-knowledge",
   "version": "1.0.0",
   "description": "Internal runbook search via MCP and CLI",
-  "author": { "name": "DevOps Team", "email": "devops@example.com" }
+  "author": { "name": "DevOps Team", "email": "devops@example.com" },
+  "mcpServers": {
+    "company-knowledge": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/dist/server.js"]
+    }
+  }
 }
